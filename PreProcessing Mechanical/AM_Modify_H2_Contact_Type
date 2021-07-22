@@ -1,0 +1,39 @@
+## Script searches and overwrites the APDL Commands with a Command Snippet name of "CiD_TiD_
+
+import string,re
+
+#Use the name of the system in case the snippet is 
+#used on multiple independent systems in the project. 
+ 
+	
+contacts = ExtAPI.DataModel.Project.Model.Connections.GetChildren(DataModelObjectCategory.ContactRegion,True)	
+contacts = filter(lambda x:not(x.InternalObject.Suppressed),contacts)
+contacts = filter(lambda x:not(x.TargetLocation==None),contacts);
+contacts = filter(lambda x:not(x.SourceLocation==None),contacts);
+
+contacts_group = ExtAPI.DataModel.Project.Model.Connections.GetChildren(DataModelObjectCategory.ConnectionGroup,True)	
+contacts_group = filter(lambda x:not(x.InternalObject.Suppressed),contacts_group)
+H2_cont = filter(lambda x:(x.GetType()==Ansys.ACT.Automation.Mechanical.Connections.ContactRegion),contacts_group[17].Children)
+H2_cont = filter(lambda x:not(x.InternalObject.Suppressed),H2_cont)
+#contacts = filter(lambda x:not(x.TargetLocation==None),contacts);
+#contacts = filter(lambda x:not(x.SourceLocation==None),contacts);
+
+#contact_info = readlog()
+#
+##ref_info = read_ref_log()
+#
+#alphalist= zip(contact_info[0],contact_info[1],contact_info[2]);
+
+
+with Transaction():
+    for i in H2_cont:
+        if (i.ContactBodies=="H2_Volume"):
+            i.FlipContactTarget()
+            i.ThermalConductanceValue = Quantity("0 [W m^-1 m^-1 C^-1]")
+            i.Behavior=0
+        else:
+            i.FlipContactTarget()
+            i.FlipContactTarget()
+            i.Behavior=0
+            i.ThermalConductanceValue = Quantity("0 [W m^-1 m^-1 C^-1]")
+ExtAPI.DataModel.Tree.Refresh()

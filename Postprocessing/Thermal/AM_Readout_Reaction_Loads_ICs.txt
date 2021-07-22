@@ -1,0 +1,525 @@
+!   Commands inserted into this file will be executed immediately after the ANSYS /POST1 command.
+
+!   Active UNIT system in Workbench when this object was created:  Metric (m, kg, N, s, V, A)
+!   NOTE:  Any data that requires units (such as mass) is assumed to be in the consistent solver unit system.
+!                See Solving Units in the help system for more information.
+
+
+!   Commands inserted into this file will be executed immediately after the ANSYS /POST1 command.
+
+!   Active UNIT system in Workbench when this object was created:  Metric (mm, t, N, s, mV, mA)
+!   NOTE:  Any data that requires units (such as mass) is assumed to be in the consistent solver unit system.
+!                See Solving Units in the help system for more information.
+
+
+!   Commands inserted into this file will be executed immediately after the ANSYS /POST1 command.
+
+!   Active UNIT system in Workbench when this object was created:  Metric (mm, t, N, s, mV, mA)
+!   NOTE:  Any data that requires units (such as mass) is assumed to be in the consistent solver unit system.
+!                See Solving Units in the help system for more information.
+
+
+resume,,db
+
+!------------------------------- Script version-----------------------------------
+*dim, script_version, string, 4
+script_version(1) = '1.0' 
+!---------------------------------------------------------------------------------
+
+
+!The component definition can be copied from the excel file 
+number_comp =200
+*dim, components, string, 80, number_comp
+components(1,1)= 'IC_TOP_PX_In_Power'
+components(1,2)= 'IC_TOP_PX_In_Power'
+components(1,3)= 'IC_TOP_PX_In_Power'
+components(1,4)= 'IC_TOP_PX_In_Power'
+components(1,5)= 'IC_TOP_PX_In_Power'
+components(1,6)= 'IC_TOP_PX_In_Power'
+components(1,7)= 'IC_TOP_PX_Out_Power'
+components(1,8)= 'IC_TOP_PX_Out_Power'
+components(1,9)= 'IC_TOP_PX_Out_Power'
+components(1,10)= 'IC_TOP_PX_Out_Power'
+components(1,11)= 'IC_TOP_PX_Out_Power'
+components(1,12)= 'IC_TOP_PX_Out_Power'
+components(1,13)= 'IC_TOP_PX_Out_Power'
+components(1,14)= 'IC_TOP_PX_Out_Power'
+components(1,15)= 'IC_TOP_PX_Out_Power'
+components(1,16)= 'IC_TOP_NX_In_Power'
+components(1,17)= 'IC_TOP_NX_In_Power'
+components(1,18)= 'IC_TOP_NX_In_Power'
+components(1,19)= 'IC_TOP_NX_In_Power'
+components(1,20)= 'IC_TOP_NX_In_Power'
+components(1,21)= 'IC_TOP_NX_In_Power'
+components(1,22)= 'IC_TOP_NX_Out_Power'
+components(1,23)= 'IC_TOP_NX_Out_Power'
+components(1,24)= 'IC_TOP_NX_Out_Power'
+components(1,25)= 'IC_TOP_NX_Out_Power'
+components(1,26)= 'IC_TOP_NX_Out_Power'
+components(1,27)= 'IC_TOP_NX_Out_Power'
+components(1,28)= 'IC_TOP_NX_Out_Power'
+components(1,29)= 'IC_TOP_NX_Out_Power'
+components(1,30)= 'IC_TOP_NX_Out_Power'
+components(1,31)= 'IC_TOP_NX_Out_Power'
+components(1,32)= 'IC_TOP_PY_In_Power'
+components(1,33)= 'IC_TOP_PY_In_Power'
+components(1,34)= 'IC_TOP_PY_In_Power'
+components(1,35)= 'IC_TOP_PY_In_Power'
+components(1,36)= 'IC_TOP_PY_In_Power'
+components(1,37)= 'IC_TOP_PY_In_Power'
+components(1,38)= 'IC_TOP_PY_Out_Power'
+components(1,39)= 'IC_TOP_PY_Out_Power'
+components(1,40)= 'IC_TOP_PY_Out_Power'
+components(1,41)= 'IC_TOP_PY_Out_Power'
+components(1,42)= 'IC_TOP_PY_Out_Power'
+components(1,43)= 'IC_TOP_PY_Out_Power'
+components(1,44)= 'IC_TOP_PY_Out_Power'
+components(1,45)= 'IC_TOP_PY_Out_Power'
+components(1,46)= 'IC_TOP_PY_Out_Power'
+components(1,47)= 'IC_TOP_PY_Out_Power'
+components(1,48)= 'IC_TOP_PY_Out_Power'
+components(1,49)= 'IC_TOP_PY_Out_Power'
+components(1,50)= 'IC_TOP_NY_Out_power'
+components(1,51)= 'IC_TOP_NY_Out_power'
+components(1,52)= 'IC_TOP_NY_Out_power'
+components(1,53)= 'IC_TOP_NY_Out_power'
+components(1,54)= 'IC_TOP_NY_Out_power'
+components(1,55)= 'IC_TOP_NY_Out_power'
+components(1,56)= 'IC_TOP_NY_Out_power'
+components(1,57)= 'IC_TOP_NY_Out_power'
+components(1,58)= 'IC_TOP_NY_Out_power'
+components(1,59)= 'IC_TOP_NY_Out_power'
+components(1,60)= 'IC_TOP_NY_Out_power'
+components(1,61)= 'IC_TOP_NY_Out_power'
+components(1,62)= 'IC_TOP_NY_Out_power'
+components(1,63)= 'IC_TOP_NY_Out_power'
+components(1,64)= 'IC_TOP_NY_Out_power'
+components(1,65)= 'IC_TOP_NY_Out_power'
+components(1,66)= 'IC_TOP_NY_Out_power'
+components(1,67)= 'IC_TOP_NY_Out_power'
+components(1,68)= 'IC_TOP_NY_Out_power'
+components(1,69)= 'IC_TOP_NY_In_Power'
+components(1,70)= 'IC_TOP_NY_In_Power'
+components(1,71)= 'IC_TOP_NY_In_Power'
+components(1,72)= 'IC_TOP_NY_In_Power'
+components(1,73)= 'IC_TOP_NY_In_Power'
+components(1,74)= 'IC_MID_Out_Power'
+components(1,75)= 'IC_MID_Out_Power'
+components(1,76)= 'IC_MID_Out_Power'
+components(1,77)= 'IC_MID_Out_Power'
+components(1,78)= 'IC_MID_Out_Power'
+components(1,79)= 'IC_MID_Out_Power'
+components(1,80)= 'IC_MID_Out_Power'
+components(1,81)= 'IC_MID_Out_Power'
+components(1,82)= 'IC_MID_Out_Power'
+components(1,83)= 'IC_MID_Out_Power'
+components(1,84)= 'IC_MID_Out_Power'
+components(1,85)= 'IC_MID_Out_Power'
+components(1,86)= 'IC_MID_Out_Power'
+components(1,87)= 'IC_MID_Out_Power'
+components(1,88)= 'IC_MID_Out_Power'
+components(1,89)= 'IC_MID_Out_Power'
+components(1,90)= 'IC_MID_Out_Power'
+components(1,91)= 'IC_MID_Out_Power'
+components(1,92)= 'IC_MID_Out_Power'
+components(1,93)= 'IC_MID_Out_Power'
+components(1,94)= 'IC_MID_Out_Power'
+components(1,95)= 'IC_MID_Out_Power'
+components(1,96)= 'IC_MID_Out_Power'
+components(1,97)= 'IC_MID_Out_Power'
+components(1,98)= 'IC_MID_In_Power'
+components(1,99)= 'IC_MID_In_Power'
+components(1,100)= 'IC_MID_In_Power'
+components(1,101)= 'IC_MID_In_Power'
+components(1,102)= 'IC_MID_In_Power'
+components(1,103)= 'IC_BOT_PX_In_Power'
+components(1,104)= 'IC_BOT_PX_In_Power'
+components(1,105)= 'IC_BOT_PX_In_Power'
+components(1,106)= 'IC_BOT_PX_In_Power'
+components(1,107)= 'IC_BOT_PX_In_Power'
+components(1,108)= 'IC_BOT_PX_In_Power'
+components(1,109)= 'IC_BOT_PX_In_Power'
+components(1,110)= 'IC_BOT_PX_In_Power'
+components(1,111)= 'IC_BOT_PX_In_Power'
+components(1,112)= 'IC_BOT_PX_In_Power'
+components(1,113)= 'IC_BOT_PX_In_Power'
+components(1,114)= 'IC_BOT_PX_In_Power'
+components(1,115)= 'IC_BOT_PX_Out_Power'
+components(1,116)= 'IC_BOT_PX_Out_Power'
+components(1,117)= 'IC_BOT_PX_Out_Power'
+components(1,118)= 'IC_BOT_PX_Out_Power'
+components(1,119)= 'IC_BOT_PX_Out_Power'
+components(1,120)= 'IC_BOT_PX_Out_Power'
+components(1,121)= 'IC_BOT_PX_Out_Power'
+components(1,122)= 'IC_BOT_PX_Out_Power'
+components(1,123)= 'IC_BOT_PX_Out_Power'
+components(1,124)= 'IC_BOT_PX_Out_Power'
+components(1,125)= 'IC_BOT_PX_Out_Power'
+components(1,126)= 'IC_BOT_PX_Out_Power'
+components(1,127)= 'IC_BOT_PX_Out_Power'
+components(1,128)= 'IC_BOT_PX_Out_Power'
+components(1,129)= 'IC_BOT_PX_Out_Power'
+components(1,130)= 'IC_BOT_PX_Out_Power'
+components(1,131)= 'IC_BOT_NX_Out_Power'
+components(1,132)= 'IC_BOT_NX_Out_Power'
+components(1,133)= 'IC_BOT_NX_Out_Power'
+components(1,134)= 'IC_BOT_NX_Out_Power'
+components(1,135)= 'IC_BOT_NX_Out_Power'
+components(1,136)= 'IC_BOT_NX_Out_Power'
+components(1,137)= 'IC_BOT_NX_Out_Power'
+components(1,138)= 'IC_BOT_NX_Out_Power'
+components(1,139)= 'IC_BOT_NX_Out_Power'
+components(1,140)= 'IC_BOT_NX_Out_Power'
+components(1,141)= 'IC_BOT_NX_Out_Power'
+components(1,142)= 'IC_BOT_NX_Out_Power'
+components(1,143)= 'IC_BOT_NX_Out_Power'
+components(1,144)= 'IC_BOT_NX_Out_Power'
+components(1,145)= 'IC_BOT_NX_In_power'
+components(1,146)= 'IC_BOT_NX_In_power'
+components(1,147)= 'IC_BOT_NX_In_power'
+components(1,148)= 'IC_BOT_NX_In_power'
+components(1,149)= 'IC_BOT_NX_In_power'
+components(1,150)= 'IC_BOT_NX_In_power'
+components(1,151)= 'IC_BOT_NX_In_power'
+components(1,152)= 'IC_BOT_NX_In_power'
+components(1,153)= 'IC_BOT_NX_In_power'
+components(1,154)= 'IC_BOT_NX_In_power'
+components(1,155)= 'IC_BOT_NX_In_power'
+components(1,156)= 'IC_BOT_NX_In_power'
+components(1,157)= 'IC_BOT_PY_Out_Power'
+components(1,158)= 'IC_BOT_PY_Out_Power'
+components(1,159)= 'IC_BOT_PY_Out_Power'
+components(1,160)= 'IC_BOT_PY_Out_Power'
+components(1,161)= 'IC_BOT_PY_Out_Power'
+components(1,162)= 'IC_BOT_PY_Out_Power'
+components(1,163)= 'IC_BOT_PY_Out_Power'
+components(1,164)= 'IC_BOT_PY_Out_Power'
+components(1,165)= 'IC_BOT_PY_Out_Power'
+components(1,166)= 'IC_BOT_PY_Out_Power'
+components(1,167)= 'IC_BOT_PY_Out_Power'
+components(1,168)= 'IC_BOT_PY_Out_Power'
+components(1,169)= 'IC_BOT_PY_Out_Power'
+components(1,170)= 'IC_BOT_PY_Out_Power'
+components(1,171)= 'IC_BOT_PY_Out_Power'
+components(1,172)= 'IC_BOT_PY_Out_Power'
+components(1,173)= 'IC_BOT_PY_Out_Power'
+components(1,174)= 'IC_BOT_PY_Out_Power'
+components(1,175)= 'IC_BOT_PY_Out_Power'
+components(1,176)= 'IC_BOT_PY_Out_Power'
+components(1,177)= 'IC_BOT_PY_In_Power'
+components(1,178)= 'IC_BOT_PY_In_Power'
+components(1,179)= 'IC_BOT_PY_In_Power'
+components(1,180)= 'IC_BOT_PY_In_Power'
+components(1,181)= 'IC_BOT_PY_In_Power'
+components(1,182)= 'IC_BOT_PY_In_Power'
+components(1,183)= 'IC_BOT_PY_In_Power'
+components(1,184)= 'IC_BOT_PY_In_Power'
+components(1,185)= 'IC_BOT_PY_In_Power'
+components(1,186)= 'IC_BOT_PY_In_Power'
+components(1,187)= 'IC_BOT_PY_In_Power'
+components(1,188)= 'IC_BOT_PY_In_Power'
+components(1,189)= 'IC_BOT_PY_In_Power'
+components(1,190)= 'IC_BOT_PY_In_Power'
+components(1,191)= 'IC_BOT_PY_In_Power'
+components(1,192)= 'IC_BOT_PY_In_Power'
+components(1,193)= 'IC_BOT_PY_In_Power'
+components(1,194)= 'IC_BOT_NY_Out_Power'
+components(1,195)= 'IC_BOT_NY_Out_Power'
+components(1,196)= 'IC_BOT_NY_Out_Power'
+components(1,197)= 'IC_BOT_NY_Out_Power'
+components(1,198)= 'IC_BOT_NY_Out_Power'
+components(1,199)= 'IC_BOT_NY_Out_Power'
+components(1,200)= 'IC_BOT_NY_Out_Power'
+components(1,201)= 'IC_BOT_NY_In_power'
+components(1,202)= 'IC_BOT_NY_In_power'
+components(1,203)= 'IC_BOT_NY_In_power'
+components(1,204)= 'IC_BOT_NY_In_power'
+components(1,205)= 'IC_BOT_NY_In_power'
+
+
+
+number_cid =200
+*dim, CIDs, array, number_cid
+CIDs(1) = C49961
+CIDs(2) = C71188
+CIDs(3) = C49952
+CIDs(4) = C49943
+CIDs(5) = C49940
+CIDs(6) = C49946
+CIDs(7) = C49964
+CIDs(8) = C71188
+CIDs(9) = C49952
+CIDs(10) = C49946
+CIDs(11) = C49940
+CIDs(12) = C49943
+CIDs(13) = C72368
+CIDs(14) = C72365
+CIDs(15) = C72379
+CIDs(16) = C49988
+CIDs(17) = C71191
+CIDs(18) = C49967
+CIDs(19) = C49976
+CIDs(20) = C49979
+CIDs(21) = C49982
+CIDs(22) = C49988
+CIDs(23) = C71191
+CIDs(24) = C49991
+CIDs(25) = C49967
+CIDs(26) = C49982
+CIDs(27) = C49976
+CIDs(28) = C49979
+CIDs(29) = C72374
+CIDs(30) = C72371
+CIDs(31) = C72377
+CIDs(32) = C50009
+CIDs(33) = C71194
+CIDs(34) = C50003
+CIDs(35) = C50000
+CIDs(36) = C49997
+CIDs(37) = C49994
+CIDs(38) = C79452
+CIDs(39) = C71194
+CIDs(40) = C50015
+CIDs(41) = C50024
+CIDs(42) = C50018
+CIDs(43) = C62925
+CIDs(44) = C50003
+CIDs(45) = C72481
+CIDs(46) = C49997
+CIDs(47) = C49994
+CIDs(48) = C50000
+CIDs(49) = C72386
+CIDs(50) = C62937
+CIDs(51) = C71197
+CIDs(52) = C50060
+CIDs(53) = C50075
+CIDs(54) = C50066
+CIDs(55) = C50069
+CIDs(56) = C50072
+CIDs(57) = C50063
+CIDs(58) = C62934
+CIDs(59) = C50078
+CIDs(60) = C50051
+CIDs(61) = C50045
+CIDs(62) = C50048
+CIDs(63) = C50054
+CIDs(64) = C50033
+CIDs(65) = C50030
+CIDs(66) = C72484
+CIDs(67) = C50027
+CIDs(68) = C72390
+CIDs(69) = C62931
+CIDs(70) = C71197
+CIDs(71) = C50033
+CIDs(72) = C50027
+CIDs(73) = C50030
+CIDs(74) = C62763
+CIDs(75) = C71200
+CIDs(76) = C62778
+CIDs(77) = C62760
+CIDs(78) = C62757
+CIDs(79) = C62766
+CIDs(80) = C62769
+CIDs(81) = C62784
+CIDs(82) = C62775
+CIDs(83) = C62772
+CIDs(84) = C62781
+CIDs(85) = C62754
+CIDs(86) = C62742
+CIDs(87) = C62748
+CIDs(88) = C62739
+CIDs(89) = C62736
+CIDs(90) = C62745
+CIDs(91) = C62733
+CIDs(92) = C62751
+CIDs(93) = C62730
+CIDs(94) = C62724
+CIDs(95) = C62721
+CIDs(96) = C62718
+CIDs(97) = C62715
+CIDs(98) = C89635
+CIDs(99) = C71200
+CIDs(100) = C62724
+CIDs(101) = C62721
+CIDs(102) = C72393
+CIDs(103) = C62658
+CIDs(104) = C71203
+CIDs(105) = C62679
+CIDs(106) = C62685
+CIDs(107) = C62691
+CIDs(108) = C62694
+CIDs(109) = C89626
+CIDs(110) = C62652
+CIDs(111) = C62655
+CIDs(112) = C62682
+CIDs(113) = C62688
+CIDs(114) = C62661
+CIDs(115) = C89650
+CIDs(116) = C71203
+CIDs(117) = C62706
+CIDs(118) = C62703
+CIDs(119) = C62712
+CIDs(120) = C62709
+CIDs(121) = C62676
+CIDs(122) = C89647
+CIDs(123) = C62652
+CIDs(124) = C62655
+CIDs(125) = C62700
+CIDs(126) = C62697
+CIDs(127) = C72400
+CIDs(128) = C72396
+CIDs(129) = C62673
+CIDs(130) = C89653
+CIDs(131) = C89638
+CIDs(132) = C71206
+CIDs(133) = C62811
+CIDs(134) = C62841
+CIDs(135) = C62838
+CIDs(136) = C62847
+CIDs(137) = C62844
+CIDs(138) = C62787
+CIDs(139) = C62790
+CIDs(140) = C72397
+CIDs(141) = C62808
+CIDs(142) = C62835
+CIDs(143) = C62832
+CIDs(144) = C72402
+CIDs(145) = C89659
+CIDs(146) = C71206
+CIDs(147) = C62829
+CIDs(148) = C62814
+CIDs(149) = C62820
+CIDs(150) = C62826
+CIDs(151) = C89656
+CIDs(152) = C62787
+CIDs(153) = C62790
+CIDs(154) = C62817
+CIDs(155) = C62823
+CIDs(156) = C62796
+CIDs(157) = C62887
+CIDs(158) = C63681
+CIDs(159) = C71209
+CIDs(160) = C62872
+CIDs(161) = C63666
+CIDs(162) = C62881
+CIDs(163) = C63675
+CIDs(164) = C62878
+CIDs(165) = C63672
+CIDs(166) = C62875
+CIDs(167) = C63669
+CIDs(168) = C72409
+CIDs(169) = C62863
+CIDs(170) = C63657
+CIDs(171) = C62860
+CIDs(172) = C63654
+CIDs(173) = C62866
+CIDs(174) = C63660
+CIDs(175) = C62869
+CIDs(176) = C63663
+CIDs(177) = C62884
+CIDs(178) = C63678
+CIDs(179) = C71209
+CIDs(180) = C62866
+CIDs(181) = C63660
+CIDs(182) = C62881
+CIDs(183) = C63675
+CIDs(184) = C62869
+CIDs(185) = C63663
+CIDs(186) = C62860
+CIDs(187) = C63654
+CIDs(188) = C62875
+CIDs(189) = C63669
+CIDs(190) = C62878
+CIDs(191) = C63672
+CIDs(192) = C62872
+CIDs(193) = C63666
+CIDs(194) = C62897
+CIDs(195) = C63690
+CIDs(196) = C71212
+CIDs(197) = C62891
+CIDs(198) = C63684
+CIDs(199) = C72412
+CIDs(200) = C72408
+CIDs(201) = C62894
+CIDs(202) = C80175
+CIDs(203) = C71212
+CIDs(204) = C62891
+CIDs(205) = C63684
+
+
+
+!--- End component definition ---
+
+!------------------------------- Extract load case name-----------------------------------
+!Output loadcase_name 
+!Script will not work if project name and load case name contains '--' or ' (' and if names are too long (combined more than ~230 characters)   
+
+*DIM,title,STRING,248
+*DIM,title_part,string,8
+*DIM,title_part_old,string,8
+
+*GET,title_part(1),ACTIVE,0,TITLE,0, START,0 !Read the first 8 characters of the title (The title contains the file name and the loadcase name)
+i=1
+
+*DOWHILE, i
+	title_part_old(1) = '%title_part(1)%' 
+	title(%i%)='%title_part(1)%' 
+	i=i+8
+	*GET,title_part(1),ACTIVE,0,TITLE,0,START,%i%
+	comp=STRPOS(title_part_old(1),title_part(1)) !compare previous read out characters with current read out (becomes the same as soon as i is greater than title length--> stop loop)
+	*IF,comp,NE,0,THEN
+		*EXIT
+	*endif	
+*enddo
+
+!Cut out loadcase name from full title
+start='--'
+end=' ('
+pos_start=STRPOS(title(1),start) + 2
+pos_end=STRPOS(title(1),end)
+nChar = pos_end - pos_start
+loadcase_name=STRSUB(title(1),pos_start,nChar)
+
+!------------------------------- end extraction load case name-----------------------------------
+
+*GET,max_st, ACTIVE, 0, SET,NSET,,
+
+set,first
+*CFOPEN,'%loadcase_name%_Heat_through_IC_Suppression',txt 			
+*GET,currentunitsystem, ACTIVE, 0,UNITS,
+*VWRITE,'Version',script_version(1),'Unitsys=%currentunitsystem%'
+%C %C %C
+
+
+*do,j,1,max_st	
+
+	number_results = 1
+	*dim, results, array, number_comp, number_results
+
+	*do,i,1,number_comp
+
+		esel,s,type,,CIDs(%i%)	!Select connected elements 
+		
+		fsum,,cont
+		*get,reaction,fsum,0,ITEM,HEAT !read heat flux
+			
+		!--- Save to results array ---
+		results(%i%,1)=reaction
+	
+	
+	*enddo
+
+
+	!---------------Herrausschreiben der Ergebnisse-------------
+	*GET,currenttime, ACTIVE, 0, SET, TIME,,
+	*VWRITE,'Time=%currenttime%,Step_%j%'
+%24C
+	*VWRITE,'Component','Heat'
+%22C %12C	
+	*vwrite,components(1,1),results(1,1)
+%26C %16.9G
+
+	set,NEXT
+*enddo
+*cfclose
+

@@ -1,0 +1,157 @@
+resume,,db
+
+!------------------------------- Script version-----------------------------------
+*dim, script_version, string, 4
+script_version(1) = '1.0' 
+!---------------------------------------------------------------------------------
+
+
+!--- The component definition can be copied from the excel file ---
+number_comp =36
+*dim, components, string, 80, number_comp
+components(1,1)= 'M1'
+components(1,2)= 'M2'
+components(1,3)= 'M3'
+components(1,4)= 'M4'
+components(1,5)= 'M5'
+components(1,6)= 'M6'
+components(1,7)= 'M7'
+components(1,8)= 'M8'
+components(1,9)= 'RSMF'
+components(1,10)= 'MiMo1'
+components(1,11)= 'MiMo2'
+components(1,12)= 'MiMo3'
+components(1,13)= 'MiMo4'
+components(1,14)= 'MiMo56'
+components(1,15)= 'MiMo7'
+components(1,16)= 'MiMo8'
+components(1,17)= 'FFr'
+components(1,18)= 'Me_M1'
+components(1,19)= 'Me_M2'
+components(1,20)= 'Me_CS_MSF2'
+components(1,21)= 'Me_M3'
+components(1,22)= 'Me_M4'
+components(1,23)= 'Me_CS_MSF56'
+components(1,24)= 'Me_M78'
+components(1,25)= 'IC_TOP_PX'
+components(1,26)= 'IC_TOP_NX'
+components(1,27)= 'IC_TOP_PY'
+components(1,28)= 'IC_TOP_NY'
+components(1,29)= 'IC_MID'
+components(1,30)= 'IC_BOTTOM_PX'
+components(1,31)= 'IC_BOTTOM_NX'
+components(1,32)= 'IC_BOTTOM_PY'
+components(1,33)= 'IC_BOTTOM_NY'
+components(1,34)= 'SFr_assembly'
+components(1,35)= 'SFr'
+components(1,36)= 'H2'
+
+!--- End component definition ---
+
+
+!------------------------------- Extract load case name-----------------------------------
+!Output loadcase_name 
+!Script will not work if project name and load case name contains '--' or ' (' and if names are too long (combined more than ~230 characters)   
+
+*DIM,title,STRING,248
+*DIM,title_part,string,8
+*DIM,title_part_old,string,8
+
+*GET,title_part(1),ACTIVE,0,TITLE,0, START,0 !Read the first 8 characters of the title (The title contains the file name and the loadcase name)
+i=1
+
+*DOWHILE, i
+	title_part_old(1) = '%title_part(1)%' 
+	title(%i%)='%title_part(1)%' 
+	i=i+8
+	*GET,title_part(1),ACTIVE,0,TITLE,0,START,%i%
+	comp=STRPOS(title_part_old(1),title_part(1)) !compare previous read out characters with current read out (becomes the same as soon as i is greater than title length--> stop loop)
+	*IF,comp,NE,0,THEN
+		*EXIT
+	*endif	
+*enddo
+
+!Cut out loadcase name from full title
+start='--'
+end=' ('
+pos_start=STRPOS(title(1),start) + 2
+pos_end=STRPOS(title(1),end)
+nChar = pos_end - pos_start
+loadcase_name=STRSUB(title(1),pos_start,nChar)
+
+!------------------------------- end extraction load case name-----------------------------------
+
+*GET,max_st, ACTIVE, 0, SET,NSET,,
+set,first
+
+*CFOPEN,'%loadcase_name%_Temperature_bodies',txt 			
+*GET,currentunitsystem, ACTIVE, 0,UNITS,
+*VWRITE,'Version',script_version(1),'Unitsys=%currentunitsystem%'
+%7C %4C %16C
+
+*do,j,1,max_st	
+
+	number_results = 5
+	*dim, results, array, number_comp, number_results
+	
+
+	*do,i,1,number_comp
+
+		cmsel,s, components(1,%i%)	!Select volume elements of body (must be body selection)
+		ETABLE, ERAS	!Clear Etable
+		ETABLE,e_temp,TEMP	!Read element temperatures
+		
+		!--- Average temperature (volume averaged) ---
+		ETABLE,e_volu,VOLU !Read element volume
+		smult,e_v_t,e_volu,e_temp !multiply volume and temperature
+		ssum !calculate sum
+		*get,e_volu_sum,ssum,0,ITEM,e_volu !read sum of element volumes
+		*get,e_v_t_sum,ssum,0,ITEM,e_v_t !read sum of element volume x element temperature
+		e_temp_av = e_v_t_sum / e_volu_sum 
+		
+		!--- Max temperature ---
+		esort,etab,e_temp
+		*get,e_temp_max,sort,,max ! get the maximum value
+		*get,e_temp_max_el,sort,,imax ! get the element number with the maximum value
+		
+		!--- Min temperature ---
+		*get,e_temp_min,sort,,min ! get the minimum value
+		*get,e_temp_min_el,sort,,imin ! get the element number with the minimum value
+		
+		!--- Save to results array ---
+		results(%i%,1)=e_temp_av
+		results(%i%,2)=e_temp_max_el
+		results(%i%,3)=e_temp_max
+		results(%i%,4)=e_temp_min_el
+		results(%i%,5)=e_temp_min
+	*enddo
+
+
+	!---------------Herrausschreiben der Ergebnisse-------------
+	*GET,currenttime, ACTIVE, 0, SET, TIME,,
+	*VWRITE,'Time=%currenttime%,Step_%j%'
+%24C
+	*VWRITE,'Component','Tav', 'Node_Tmax','T_max','Node_Tmin','T_min'
+%12C %12C %18C %9C %17C %9C
+	*vwrite,components(1,1),results(1,1),results(1,2),results(1,3),results(1,4),results(1,5)
+%16C %16.9G %10.0F %16.9G %10.0F %16.9G
+	
+	set,NEXT
+*enddo
+*cfclose
+
+
+! !only for checking or if each element result is needed
+
+! *get,ecount,elem,0,count
+! *dim,output,arra,ecount,10
+! curre = 0
+! *do,i,1,ecount
+  ! curre = ELNEXT(curre)
+  ! output(i,1) = curre
+  ! *get,output(i,2),etab,1,elem,curre !element temperatures
+  ! *get,output(i,3),etab,2,elem,curre !element volumes
+  ! *get,output(i,4),etab,3,elem,curre !temp x volume
+! *enddo
+
+

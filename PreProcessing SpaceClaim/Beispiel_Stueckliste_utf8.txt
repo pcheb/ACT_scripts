@@ -1,0 +1,6 @@
+000000-2133-899_01-001	MGC Adjustment Ring V2
+000000-2133-898_01-001	MGC Adjustment Ring 2 V2
+000000-2111-733_01-001	MGC Pin big - Hinges Standing V1
+000000-2098-559_01-001	Sonderschraube, kleiner Kopf_AU M4x16
+000000-2088-417_01-001	MGC Coil Holder Big Bottom
+000000-2077-197_01-001	Tuned mass damper Huelse

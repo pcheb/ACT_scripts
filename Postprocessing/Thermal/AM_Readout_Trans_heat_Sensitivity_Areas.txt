@@ -1,0 +1,531 @@
+!   Commands inserted into this file will be executed immediately after the ANSYS /POST1 command.
+
+!   Active UNIT system in Workbench when this object was created:  Metric (m, kg, N, s, V, A)
+!   NOTE:  Any data that requires units (such as mass) is assumed to be in the consistent solver unit system.
+!                See Solving Units in the help system for more information.
+
+
+resume,,db
+
+!------------------------------- Script version-----------------------------------
+*dim, script_version, string, 4
+script_version(1) = '1.0' 
+!---------------------------------------------------------------------------------
+
+number_comp =201
+*dim, components, string, 80, number_comp
+components(1,1)= 'sensitivity_area_S19'
+components(1,2)= 'sensitivity_area_S19'
+components(1,3)= 'sensitivity_area_S18'
+components(1,4)= 'sensitivity_area_S18'
+components(1,5)= 'sensitivity_area_S18'
+components(1,6)= 'sensitivity_area_S18'
+components(1,7)= 'sensitivity_area_S18'
+components(1,8)= 'sensitivity_area_S18'
+components(1,9)= 'sensitivity_area_S17a'
+components(1,10)= 'sensitivity_area_S17a'
+components(1,11)= 'sensitivity_area_S17a'
+components(1,12)= 'sensitivity_area_S17a'
+components(1,13)= 'sensitivity_area_S17a'
+components(1,14)= 'sensitivity_area_S17a'
+components(1,15)= 'sensitivity_area_S17a'
+components(1,16)= 'sensitivity_area_S17b'
+components(1,17)= 'sensitivity_area_S17b'
+components(1,18)= 'sensitivity_area_S17b'
+components(1,19)= 'sensitivity_area_S17b'
+components(1,20)= 'sensitivity_area_S17b'
+components(1,21)= 'sensitivity_area_S16a'
+components(1,22)= 'sensitivity_area_S16a'
+components(1,23)= 'sensitivity_area_S16b'
+components(1,24)= 'sensitivity_area_S16b'
+components(1,25)= 'sensitivity_area_S16b'
+components(1,26)= 'sensitivity_area_S16b'
+components(1,27)= 'sensitivity_area_S15a'
+components(1,28)= 'sensitivity_area_S15a'
+components(1,29)= 'sensitivity_area_S15a'
+components(1,30)= 'sensitivity_area_S15a'
+components(1,31)= 'sensitivity_area_S15a'
+components(1,32)= 'sensitivity_area_S15a'
+components(1,33)= 'sensitivity_area_S15b'
+components(1,34)= 'sensitivity_area_S15b'
+components(1,35)= 'sensitivity_area_S14'
+components(1,36)= 'sensitivity_area_S14'
+components(1,37)= 'sensitivity_area_S14'
+components(1,38)= 'sensitivity_area_S14'
+components(1,39)= 'sensitivity_area_S14'
+components(1,40)= 'sensitivity_area_S14'
+components(1,41)= 'sensitivity_area_S14'
+components(1,42)= 'sensitivity_area_S13'
+components(1,43)= 'sensitivity_area_S13'
+components(1,44)= 'sensitivity_area_S13'
+components(1,45)= 'sensitivity_area_S13'
+components(1,46)= 'sensitivity_area_S13'
+components(1,47)= 'sensitivity_area_S13'
+components(1,48)= 'sensitivity_area_S13'
+components(1,49)= 'sensitivity_area_S12'
+components(1,50)= 'sensitivity_area_S11'
+components(1,51)= 'sensitivity_area_S10'
+components(1,52)= 'sensitivity_area_S10'
+components(1,53)= 'sensitivity_area_S10'
+components(1,54)= 'sensitivity_area_S10'
+components(1,55)= 'sensitivity_area_S10'
+components(1,56)= 'sensitivity_area_S10'
+components(1,57)= 'sensitivity_area_S10'
+components(1,58)= 'sensitivity_area_S9'
+components(1,59)= 'sensitivity_area_S9'
+components(1,60)= 'sensitivity_area_S9'
+components(1,61)= 'sensitivity_area_S9'
+components(1,62)= 'sensitivity_area_S9'
+components(1,63)= 'sensitivity_area_S9'
+components(1,64)= 'sensitivity_area_S9'
+components(1,65)= 'sensitivity_area_S8a'
+components(1,66)= 'sensitivity_area_S8a'
+components(1,67)= 'sensitivity_area_S8a'
+components(1,68)= 'sensitivity_area_S8a'
+components(1,69)= 'sensitivity_area_S8a'
+components(1,70)= 'sensitivity_area_S8a'
+components(1,71)= 'sensitivity_area_S8b'
+components(1,72)= 'sensitivity_area_S8b'
+components(1,73)= 'sensitivity_area_S8b'
+components(1,74)= 'sensitivity_area_S7a'
+components(1,75)= 'sensitivity_area_S7a'
+components(1,76)= 'sensitivity_area_S7a'
+components(1,77)= 'sensitivity_area_S7a'
+components(1,78)= 'sensitivity_area_S7a'
+components(1,79)= 'sensitivity_area_S7a'
+components(1,80)= 'sensitivity_area_S7a'
+components(1,81)= 'sensitivity_area_S7a'
+components(1,82)= 'sensitivity_area_S7a'
+components(1,83)= 'sensitivity_area_S7a'
+components(1,84)= 'sensitivity_area_S7b'
+components(1,85)= 'sensitivity_area_S7b'
+components(1,86)= 'sensitivity_area_S7b'
+components(1,87)= 'sensitivity_area_S6a'
+components(1,88)= 'sensitivity_area_S6a'
+components(1,89)= 'sensitivity_area_S6a'
+components(1,90)= 'sensitivity_area_S5a'
+components(1,91)= 'sensitivity_area_S5a'
+components(1,92)= 'sensitivity_area_S5a'
+components(1,93)= 'sensitivity_area_S5b'
+components(1,94)= 'sensitivity_area_S5b'
+components(1,95)= 'sensitivity_area_S5b'
+components(1,96)= 'sensitivity_area_S5b'
+components(1,97)= 'sensitivity_area_S5b'
+components(1,98)= 'sensitivity_area_S5b'
+components(1,99)= 'sensitivity_area_S6b'
+components(1,100)= 'sensitivity_area_S6b'
+components(1,101)= 'sensitivity_area_S6b'
+components(1,102)= 'sensitivity_area_S6b'
+components(1,103)= 'sensitivity_area_S6b'
+components(1,104)= 'sensitivity_area_S6b'
+components(1,105)= 'sensitivity_area_S4'
+components(1,106)= 'sensitivity_area_S3'
+components(1,107)= 'sensitivity_area_S3'
+components(1,108)= 'sensitivity_area_S3'
+components(1,109)= 'sensitivity_area_S3'
+components(1,110)= 'sensitivity_area_S2a'
+components(1,111)= 'sensitivity_area_S2a'
+components(1,112)= 'sensitivity_area_S2a'
+components(1,113)= 'sensitivity_area_S2a'
+components(1,114)= 'sensitivity_area_S2b'
+components(1,115)= 'sensitivity_area_S2b'
+components(1,116)= 'sensitivity_area_S2b'
+components(1,117)= 'sensitivity_area_S2b'
+components(1,118)= 'sensitivity_area_S1a'
+components(1,119)= 'sensitivity_area_S1a'
+components(1,120)= 'sensitivity_area_S1a'
+components(1,121)= 'sensitivity_area_S1a'
+components(1,122)= 'sensitivity_area_S1a'
+components(1,123)= 'sensitivity_area_S1a'
+components(1,124)= 'sensitivity_area_S1a'
+components(1,125)= 'sensitivity_area_S1a'
+components(1,126)= 'sensitivity_area_S1a'
+components(1,127)= 'sensitivity_area_S1a'
+components(1,128)= 'sensitivity_area_S1a'
+components(1,129)= 'sensitivity_area_S1b'
+components(1,130)= 'sensitivity_area_S1b'
+components(1,131)= 'sensitivity_area_S1b'
+components(1,132)= 'sensitivity_area_S1b'
+components(1,133)= 'sensitivity_area_S1b'
+components(1,134)= 'sensitivity_area_S20'
+components(1,135)= 'sensitivity_area_S20'
+components(1,136)= 'sensitivity_area_S20'
+components(1,137)= 'sensitivity_area_S20'
+components(1,138)= 'sensitivity_area_S20'
+components(1,139)= 'sensitivity_area_S20'
+components(1,140)= 'sensitivity_area_S20'
+components(1,141)= 'sensitivity_area_S20'
+components(1,142)= 'sensitivity_area_S20'
+components(1,143)= 'sensitivity_area_S20'
+components(1,144)= 'sensitivity_area_S20'
+components(1,145)= 'sensitivity_area_S20'
+components(1,146)= 'sensitivity_area_S20'
+components(1,147)= 'sensitivity_area_S21'
+components(1,148)= 'sensitivity_area_S21'
+components(1,149)= 'sensitivity_area_S21'
+components(1,150)= 'sensitivity_area_S21'
+components(1,151)= 'sensitivity_area_S21'
+components(1,152)= 'sensitivity_area_S21'
+components(1,153)= 'sensitivity_area_S21'
+components(1,154)= 'sensitivity_area_S21'
+components(1,155)= 'sensitivity_area_S21'
+components(1,156)= 'sensitivity_area_S21'
+components(1,157)= 'sensitivity_area_S21'
+components(1,158)= 'sensitivity_area_S21'
+components(1,159)= 'sensitivity_area_S21'
+components(1,160)= 'sensitivity_area_S22a'
+components(1,161)= 'sensitivity_area_S22a'
+components(1,162)= 'sensitivity_area_S22a'
+components(1,163)= 'sensitivity_area_S22a'
+components(1,164)= 'sensitivity_area_S22a'
+components(1,165)= 'sensitivity_area_S22a'
+components(1,166)= 'sensitivity_area_S22a'
+components(1,167)= 'sensitivity_area_S22a'
+components(1,168)= 'sensitivity_area_S22a'
+components(1,169)= 'sensitivity_area_S22a'
+components(1,170)= 'sensitivity_area_S22a'
+components(1,171)= 'sensitivity_area_S22a'
+components(1,172)= 'sensitivity_area_S22a'
+components(1,173)= 'sensitivity_area_S22b'
+components(1,174)= 'sensitivity_area_S22b'
+components(1,175)= 'sensitivity_area_S22b'
+components(1,176)= 'sensitivity_area_S22b'
+components(1,177)= 'sensitivity_area_S22b'
+components(1,178)= 'sensitivity_area_S22b'
+components(1,179)= 'sensitivity_area_S23a'
+components(1,180)= 'sensitivity_area_S23a'
+components(1,181)= 'sensitivity_area_S23a'
+components(1,182)= 'sensitivity_area_S23a'
+components(1,183)= 'sensitivity_area_S23a'
+components(1,184)= 'sensitivity_area_S23a'
+components(1,185)= 'sensitivity_area_S23a'
+components(1,186)= 'sensitivity_area_S23a'
+components(1,187)= 'sensitivity_area_S23a'
+components(1,188)= 'sensitivity_area_S23a'
+components(1,189)= 'sensitivity_area_S23a'
+components(1,190)= 'sensitivity_area_S23a'
+components(1,191)= 'sensitivity_area_S23a'
+components(1,192)= 'sensitivity_area_S23b'
+components(1,193)= 'sensitivity_area_S23b'
+components(1,194)= 'sensitivity_area_S23b'
+components(1,195)= 'sensitivity_area_S23b'
+components(1,196)= 'sensitivity_area_S23b'
+components(1,197)= 'sensitivity_area_S23b'
+components(1,198)= 'sensitivity_area_S22c'
+components(1,199)= 'sensitivity_area_S22c'
+components(1,200)= 'sensitivity_area_S23c'
+components(1,201)= 'sensitivity_area_S23c'
+
+
+number_cid =201
+*dim, CIDs, array, number_cid
+CIDs(1) = C50382
+CIDs(2) = C50379
+CIDs(3) = C50874
+CIDs(4) = C51426
+CIDs(5) = C51447
+CIDs(6) = C51444
+CIDs(7) = C51429
+CIDs(8) = C51561
+CIDs(9) = C50676
+CIDs(10) = C50937
+CIDs(11) = C51276
+CIDs(12) = C51279
+CIDs(13) = C51354
+CIDs(14) = C51363
+CIDs(15) = C51549
+CIDs(16) = C50676
+CIDs(17) = C50955
+CIDs(18) = C50961
+CIDs(19) = C51384
+CIDs(20) = C51387
+CIDs(21) = C50676
+CIDs(22) = C51552
+CIDs(23) = C50676
+CIDs(24) = C51390
+CIDs(25) = C51393
+CIDs(26) = C51555
+CIDs(27) = C50676
+CIDs(28) = C50937
+CIDs(29) = C51549
+CIDs(30) = C51573
+CIDs(31) = C51591
+CIDs(32) = C51624
+CIDs(33) = C50919
+CIDs(34) = C51357
+CIDs(35) = C50769
+CIDs(36) = C50883
+CIDs(37) = C50976
+CIDs(38) = C51069
+CIDs(39) = C70702
+CIDs(40) = C51420
+CIDs(41) = C51438
+CIDs(42) = C50739
+CIDs(43) = C50892
+CIDs(44) = C50979
+CIDs(45) = C51078
+CIDs(46) = C70708
+CIDs(47) = C51423
+CIDs(48) = C51441
+CIDs(49) = C50769
+CIDs(50) = C50739
+CIDs(51) = C50832
+CIDs(52) = C50844
+CIDs(53) = C50943
+CIDs(54) = C51351
+CIDs(55) = C51366
+CIDs(56) = C51381
+CIDs(57) = C51396
+CIDs(58) = C50823
+CIDs(59) = C50838
+CIDs(60) = C50949
+CIDs(61) = C51336
+CIDs(62) = C51360
+CIDs(63) = C51378
+CIDs(64) = C51399
+CIDs(65) = C50898
+CIDs(66) = C50589
+CIDs(67) = C51435
+CIDs(68) = C70690
+CIDs(69) = C51051
+CIDs(70) = C51099
+CIDs(71) = C50589
+CIDs(72) = C51315
+CIDs(73) = C51282
+CIDs(74) = C50544
+CIDs(75) = C70696
+CIDs(76) = C51540
+CIDs(77) = C51060
+CIDs(78) = C51204
+CIDs(79) = C50907
+CIDs(80) = C51558
+CIDs(81) = C51432
+CIDs(82) = C51543
+CIDs(83) = C51216
+CIDs(84) = C50544
+CIDs(85) = C51300
+CIDs(86) = C51285
+CIDs(87) = C50805
+CIDs(88) = C51294
+CIDs(89) = C51348
+CIDs(90) = C50814
+CIDs(91) = C51339
+CIDs(92) = C51291
+CIDs(93) = C51342
+CIDs(94) = C50796
+CIDs(95) = C51318
+CIDs(96) = C51321
+CIDs(97) = C51534
+CIDs(98) = C50973
+CIDs(99) = C51345
+CIDs(100) = C50784
+CIDs(101) = C51330
+CIDs(102) = C51333
+CIDs(103) = C51564
+CIDs(104) = C50967
+CIDs(105) = C50373
+CIDs(106) = C50373
+CIDs(107) = C51528
+CIDs(108) = C51522
+CIDs(109) = C51525
+CIDs(110) = C51507
+CIDs(111) = C51513
+CIDs(112) = C50373
+CIDs(113) = C51510
+CIDs(114) = C51546
+CIDs(115) = C50397
+CIDs(116) = C50391
+CIDs(117) = C50373
+CIDs(118) = C50496
+CIDs(119) = C51309
+CIDs(120) = C51306
+CIDs(121) = C51312
+CIDs(122) = C51303
+CIDs(123) = C51483
+CIDs(124) = C51417
+CIDs(125) = C51411
+CIDs(126) = C51492
+CIDs(127) = C51498
+CIDs(128) = C51495
+CIDs(129) = C51459
+CIDs(130) = C51465
+CIDs(131) = C51531
+CIDs(132) = C51471
+CIDs(133) = C50496
+CIDs(134) = C51213
+CIDs(135) = C50607
+CIDs(136) = C81929
+CIDs(137) = C51021
+CIDs(138) = C81932
+CIDs(139) = C51015
+CIDs(140) = C87422
+CIDs(141) = C86263
+CIDs(142) = C50982
+CIDs(143) = C51204
+CIDs(144) = C50973
+CIDs(145) = C51225
+CIDs(146) = C51222
+CIDs(147) = C50625
+CIDs(148) = C51108
+CIDs(149) = C81941
+CIDs(150) = C51018
+CIDs(151) = C51012
+CIDs(152) = C81944
+CIDs(153) = C89689
+CIDs(154) = C87380
+CIDs(155) = C50985
+CIDs(156) = C51099
+CIDs(157) = C50967
+CIDs(158) = C51135
+CIDs(159) = C51132
+CIDs(160) = C51198
+CIDs(161) = C50454
+CIDs(162) = C51267
+CIDs(163) = C51240
+CIDs(164) = C51234
+CIDs(165) = C51258
+CIDs(166) = C51252
+CIDs(167) = C51003
+CIDs(168) = C51009
+CIDs(169) = C81938
+CIDs(170) = C81935
+CIDs(171) = C51567
+CIDs(172) = C51270
+CIDs(173) = C50739
+CIDs(174) = C87389
+CIDs(175) = C89692
+CIDs(176) = C50991
+CIDs(177) = C51402
+CIDs(178) = C50925
+CIDs(179) = C51123
+CIDs(180) = C51162
+CIDs(181) = C51168
+CIDs(182) = C51180
+CIDs(183) = C51150
+CIDs(184) = C51177
+CIDs(185) = C51144
+CIDs(186) = C50424
+CIDs(187) = C51570
+CIDs(188) = C81950
+CIDs(189) = C51006
+CIDs(190) = C51000
+CIDs(191) = C81947
+CIDs(192) = C50769
+CIDs(193) = C86269
+CIDs(194) = C87428
+CIDs(195) = C50997
+CIDs(196) = C50931
+CIDs(197) = C51405
+CIDs(198) = C50739
+CIDs(199) = C51279
+CIDs(200) = C50769
+CIDs(201) = C51276
+
+
+
+!--- End component definition ---
+
+!------------------------------- Extract load case name-----------------------------------
+!Output loadcase_name 
+!Script will not work if project name and load case name contains '--' or ' (' and if names are too long (combined more than ~230 characters)   
+
+*DIM,title,STRING,248
+*DIM,title_part,string,8
+*DIM,title_part_old,string,8
+
+*GET,title_part(1),ACTIVE,0,TITLE,0, START,0 !Read the first 8 characters of the title (The title contains the file name and the loadcase name)
+i=1
+
+*DOWHILE, i
+	title_part_old(1) = '%title_part(1)%' 
+	title(%i%)='%title_part(1)%' 
+	i=i+8
+	*GET,title_part(1),ACTIVE,0,TITLE,0,START,%i%
+	comp=STRPOS(title_part_old(1),title_part(1)) !compare previous read out characters with current read out (becomes the same as soon as i is greater than title length--> stop loop)
+	*IF,comp,NE,0,THEN
+		*EXIT
+	*endif	
+*enddo
+
+!Cut out loadcase name from full title
+start='--'
+end=' ('
+pos_start=STRPOS(title(1),start) + 2
+pos_end=STRPOS(title(1),end)
+nChar = pos_end - pos_start
+loadcase_name=STRSUB(title(1),pos_start,nChar)
+
+!------------------------------- end extraction load case name-----------------------------------
+
+*GET,max_st, ACTIVE, 0, SET,NSET,,
+
+set,first
+*CFOPEN,'%loadcase_name%_Heat_SFr_sensitivity_SUM_Test',txt 			
+*GET,currentunitsystem, ACTIVE, 0,UNITS,
+*VWRITE,'Version',script_version(1),'Unitsys=%currentunitsystem%'
+%C %C %C
+
+
+!*do,j,1,max_st	
+*do,j,1,1
+	number_results = 1
+	*dim, results, array, number_comp, number_results
+
+	*do,i,1,number_comp
+
+		cmsel,s, components(1,%i%)	!Select volume elements of body (must be body selection)
+		esln,s,1	!Select connected elements 
+		esel,r,type,,CIDs(%i%)	!Select connected elements 
+		fsum,,cont
+		*get,reaction,fsum,0,ITEM,HEAT !read heat flux
+		
+		! *if,reaction,eq, 0, THEN	!If heat flux is 0 use the other contact (for symmetric contact only)
+			! cmsel,s, components(1,%i%)	!Select volume elements of body (must be body selection)
+			! esln,s,1	!Select connected elements 
+			! esel,r,type,,TIDs(%i%)	!Select connected elements 
+			! fsum,,cont
+			! *get,reaction,fsum,0,ITEM,HEAT !read heat flux
+		! *endif
+		
+		!--- Save to results array ---
+		results(i)=reaction
+		
+	*enddo
+	
+	
+	!Nachbearbeitung der Ergebnisse. Summenbildung pro named selection (Addition über alle Kontakte die zur named selection gehören)
+	*dim, components_reduced, string, 80, number_comp
+	number_results = 1
+	*dim, results_summed, array, number_comp, number_results
+		
+	a = 1
+	components_reduced(1,%a%) = components(1,1)
+	results_summed(%a%) = results(1)
+	
+	*do,k,2,number_comp
+	
+		*if,components(1,%k%),eq,components(1,%k%-1),then	!Check if node is selected
+			results_summed(%a%) = results_summed(%a%) + results(k)
+		*else
+			a = a+1
+			results_summed(%a%)=results(k)
+			components_reduced(1,%a%)=components(1,%k%)
+		*endif
+		
+	*enddo
+	!*REMOVE,components_reduced,a,,ROW
+	!*REMOVE,results_summed,a,,ROW
+	
+	!---------------Herrausschreiben der Ergebnisse-------------
+	*GET,currenttime, ACTIVE, 0, SET, TIME,,
+	*VWRITE,'Time=%currenttime%,Step_%j%'
+%24C
+	*VWRITE,'Component','Heat'
+%22C %12C	
+	*vwrite,components_reduced(1,1),results_summed(1,1)
+%26C %16.9G
+
+	set,NEXT
+*enddo
+*cfclose
+

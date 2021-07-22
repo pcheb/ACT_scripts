@@ -1,0 +1,20 @@
+!Version 1.0
+!Delete elements based on named selection (etype is set to 0)
+
+/prep7
+
+cmsel,s,thermal_only_SFr
+!cmsel,a,xyz named selection
+nsle,s
+esln,s,1
+*get,enum,elem,,count
+*dowhile,enum
+  *get,etyp,elem,elnext(0),attr,type
+  esel,u,type,,etyp
+  et,etyp,0
+  *get,enum,elem,,count
+*enddo
+
+allsel
+
+/solu

@@ -1,0 +1,5 @@
+!Version 1.0
+
+OUTRES,ERASE 
+OUTRES,basic,last
+OUTRES,ESOL,last

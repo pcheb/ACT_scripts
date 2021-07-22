@@ -1,0 +1,130 @@
+﻿resume,,db
+
+!------------------------------- Script version-----------------------------------
+*dim, script_version, string, 4
+script_version(1) = '1.0' 
+!---------------------------------------------------------------------------------
+
+
+number_comp =2 !Number of entries
+*dim, components, string, 80, number_comp
+components(1,1)= 'RSMF_FFI_5_FA'  	! Name of the Entry to be refered in the output file
+components(1,2)= 'RSMF_FFI_5_IF'	! Name of the Entry to be refered in the output file
+
+
+
+number_cid =2 Number of entries , same as above
+*dim, CIDs, array, number_cid
+CIDs(1) = C51297			! Contact ID of the surface contact of interest
+CIDs(2) = C51801			! Contact ID of the surface contact of interest
+
+
+
+
+!--- End component definition ---
+
+!------------------------------- Extract load case name-----------------------------------
+!Output loadcase_name 
+!Script will not work if project name and load case name contains '--' or ' (' and if names are too long (combined more than ~230 characters)   
+
+*DIM,title,STRING,248
+*DIM,title_part,string,8
+*DIM,title_part_old,string,8
+
+*GET,title_part(1),ACTIVE,0,TITLE,0, START,0 !Read the first 8 characters of the title (The title contains the file name and the loadcase name)
+i=1
+
+*DOWHILE, i
+	title_part_old(1) = '%title_part(1)%' 
+	title(%i%)='%title_part(1)%' 
+	i=i+8
+	*GET,title_part(1),ACTIVE,0,TITLE,0,START,%i%
+	comp=STRPOS(title_part_old(1),title_part(1)) !compare previous read out characters with current read out (becomes the same as soon as i is greater than title length--> stop loop)
+	*IF,comp,NE,0,THEN
+		*EXIT
+	*endif	
+*enddo
+
+!Cut out loadcase name from full title
+start='--'
+end=' ('
+pos_start=STRPOS(title(1),start) + 2
+pos_end=STRPOS(title(1),end)
+nChar = pos_end - pos_start
+loadcase_name=STRSUB(title(1),pos_start,nChar)
+
+!------------------------------- end extraction load case name-----------------------------------
+
+*GET,max_st, ACTIVE, 0, SET,NSET,,
+
+set,first
+*CFOPEN,'%loadcase_name%_Heat_Flux_FFIs_SUM',txt 			
+*GET,currentunitsystem, ACTIVE, 0,UNITS,
+*VWRITE,'Version',script_version(1),'Unitsys=%currentunitsystem%'
+%C %C %C
+
+
+!*do,j,1,max_st	
+*do,j,1,1
+	number_results = 1
+	*dim, results, array, number_comp, number_results
+
+	*do,i,1,number_comp
+
+		cmsel,s, components(1,%i%)	!Select volume elements of body (must be body selection)
+		esln,s,1	!Select connected elements 
+		esel,r,type,,CIDs(%i%)	!Select connected elements 
+		fsum,,cont
+		*get,reaction,fsum,0,ITEM,HEAT !read heat flux
+		
+		! *if,reaction,eq, 0, THEN	!If heat flux is 0 use the other contact (for symmetric contact only)
+			! cmsel,s, components(1,%i%)	!Select volume elements of body (must be body selection)
+			! esln,s,1	!Select connected elements 
+			! esel,r,type,,TIDs(%i%)	!Select connected elements 
+			! fsum,,cont
+			! *get,reaction,fsum,0,ITEM,HEAT !read heat flux
+		! *endif
+		
+		!--- Save to results array ---
+		results(i)=reaction
+		
+	*enddo
+	
+	
+	!Nachbearbeitung der Ergebnisse. Summenbildung pro named selection (Addition über alle Kontakte die zur named selection gehören)
+	*dim, components_reduced, string, 80, number_comp
+	number_results = 1
+	*dim, results_summed, array, number_comp, number_results
+		
+	a = 1
+	components_reduced(1,%a%) = components(1,1)
+	results_summed(%a%) = results(1)
+	
+	*do,k,2,number_comp
+	
+		*if,components(1,%k%),eq,components(1,%k%-1),then	!Check if node is selected
+			results_summed(%a%) = results_summed(%a%) + results(k)
+		*else
+			a = a+1
+			results_summed(%a%)=results(k)
+			components_reduced(1,%a%)=components(1,%k%)
+		*endif
+		
+	*enddo
+	!*REMOVE,components_reduced,a,,ROW
+	!*REMOVE,results_summed,a,,ROW
+	
+	!---------------Herrausschreiben der Ergebnisse-------------
+	*GET,currenttime, ACTIVE, 0, SET, TIME,,
+	*VWRITE,'Time=%currenttime%,Step_%j%'
+%24C
+	*VWRITE,'Component','Heat'
+%22C %12C	
+	*vwrite,components_reduced(1,1),results_summed(1,1)
+%26C %16.9G
+
+	set,NEXT
+*enddo
+*cfclose
+
+

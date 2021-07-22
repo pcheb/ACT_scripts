@@ -1,0 +1,22 @@
+!Version 2.0
+!Delete contact elements based on named selection (etype is set to 0)
+
+/prep7
+
+esel,s,type,,C86592
+esel,a,type,,T86592 
+esel,a,type,,C86599 
+esel,a,type,,T86599
+
+*get,enum,elem,,count
+*dowhile,enum
+  *get,etyp,elem,elnext(0),attr,type
+  esel,u,type,,etyp
+  et,etyp,0
+  *get,enum,elem,,count
+*enddo
+
+allsel
+
+/solu
+
